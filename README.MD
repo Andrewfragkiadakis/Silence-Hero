@@ -41,9 +41,9 @@ You can install this extension in two ways:
 
 **Method 1: Using Git (Recommended for developers)**
 
-1.  **Clone the Repository:** Open your terminal or command prompt and run:
+1. **Clone the Repository:** Open your terminal or command prompt and run:
     ```bash
-    git clone [https://github.com/Andrewfragkiadakis/music-volume-reminder.git](https://github.com/Andrewfragkiadakis/music-volume-reminder.git)
+    git clone https://github.com/Andrewfragkiadakis/music-volume-reminder.git
     ```
 2.  **Load in Chrome:**
     * Open Google Chrome and navigate to `chrome://extensions/`.
