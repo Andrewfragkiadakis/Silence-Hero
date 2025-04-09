@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chrome Extension Icon Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    a {
+      display: inline-block;
+      margin: 5px 0;
+      text-decoration: none;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chrome Extension Icon Generator</h1>
+  <p>Click on a link below to download the icon image.</p>
+  <div id="links"></div>
+
+  <script>
+    function createIcon(color, size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      ctx.fill();
+      return canvas.toDataURL('image/png');
+    }
+
+    function createDownloadLink(color, size, fileName) {
+      const dataURL = createIcon(color, size);
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = fileName;
+      link.innerText = fileName;
+      const div = document.getElementById('links');
+      div.appendChild(link);
+      div.appendChild(document.createElement('br'));
+    }
+
+    const sizes = [16, 32, 48, 128];
+    // Generate green icons (non-quiet hours)
+    sizes.forEach(size => {
+      createDownloadLink('green', size, `green-${size}.png`);
+    });
+    // Generate red icons (quiet hours)
+    sizes.forEach(size => {
+      createDownloadLink('red', size, `red-${size}.png`);
+    });
+  </script>
+</body>
+</html>
