@@ -28,6 +28,7 @@ Quiet hour rules are automatically calculated based on the date:
 
 ### 🎨 Modern Design  
 - Clean, intuitive interface  
+- Automatic **Light & Dark themes** based on the time of day.
 - Comfortaa font for a friendly and modern look  
 - Earth-toned color palette  
 - Rounded corners and responsive layout  
