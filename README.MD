@@ -64,8 +64,14 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 ## 👀 Screenshots
 
-*(Add your awesome screenshots here!)*
+![Website Screenshot](screenshot.png)
 
 ## 📄 License
 
 This project is open-source and free to use under the **MIT License**. Feel free to fork it, improve it, or just enjoy the peace of mind!
+
+## About Me
+I’m an IT & Computer Engineering student with expertise in networking, system administration, and web development. 
+This site is a creative representation of my professional journey, now available in both English and Greek.
+Built with ❤️ using HTML, CSS, and JavaScript.
+
