@@ -7,7 +7,7 @@ It dynamically updates its icon (green for non-quiet hours and red for quiet hou
 
 ## ✨ Features
 
-### ✅ Dynamic Icon  
+### ✅ Dynamic Icon  (🟢 / 🔴)
 Automatically updates between **red** and **green** based on current time and Greek quiet hour rules.
 
 ### 📋 User-Friendly Popup  
