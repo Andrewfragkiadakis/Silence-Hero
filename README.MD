@@ -22,29 +22,30 @@ Manage your music volume according to **Greek quiet hours** with this simple Chr
 
 Choose your preferred method:
 
-**1. Using Git (Recommended for Developers)**
+**1. Using Git (Recommended)**
 
-   a. **Clone:** Open your terminal and run:
-         ```bash
-    git clone https://github.com/Andrewfragkiadakis/music-volume-reminder.git
-    ```
-   b. **Load:**
-      * Open Chrome, go to `chrome://extensions/`.
-      * Enable **Developer mode** (top-right toggle).
-      * Click **Load unpacked**.
-      * Select the cloned `music-volume-reminder` folder.
+   1.  **Clone Repository:**
+       Open your terminal and run:
+       ```bash
+       git clone [https://github.com/Andrewfragkiadakis/music-volume-reminder.git](https://github.com/Andrewfragkiadakis/music-volume-reminder.git)
+       ```
+   2.  **Load in Chrome:**
+       * Navigate to `chrome://extensions/`.
+       * Enable **Developer mode** using the toggle (usually top-right).
+       * Click **Load unpacked**.
+       * Select the `music-volume-reminder` folder you just cloned.
 
 **2. Download ZIP**
 
-   a. **Download:**
-      * Go to the repository: [https://github.com/Andrewfragkiadakis/music-volume-reminder](https://github.com/Andrewfragkiadakis/music-volume-reminder)
-      * Click **Code** -> **Download ZIP**.
-   b. **Extract:** Unzip the downloaded file (e.g., `music-volume-reminder-main.zip`).
-   c. **Load:**
-      * Open Chrome, go to `chrome://extensions/`.
-      * Enable **Developer mode**.
-      * Click **Load unpacked**.
-      * Select the extracted folder (e.g., `music-volume-reminder-main`).
+   1.  **Download:**
+       * Go to the repository: [`https://github.com/Andrewfragkiadakis/music-volume-reminder`](https://github.com/Andrewfragkiadakis/music-volume-reminder)
+       * Click the green **Code** button, then select **Download ZIP**.
+   2.  **Extract:** Unzip the downloaded file (e.g., `music-volume-reminder-main.zip`) on your computer.
+   3.  **Load in Chrome:**
+       * Navigate to `chrome://extensions/`.
+       * Enable **Developer mode**.
+       * Click **Load unpacked**.
+       * Select the folder you extracted (e.g., `music-volume-reminder-main`).
 
 ---
 
