@@ -1,79 +1,59 @@
 # 🇬🇷 Music Volume Reminder Chrome Extension
 
-A Chrome extension that helps you manage your music volume based on Greek quiet hour rules ([Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/)).
-It dynamically updates its icon (green for non-quiet hours and red for quiet hours) and provides a handy countdown in a stylish popup with rounded corners and modern UI/UX inspired by Google Chrome’s own design language.
+Manage your music volume according to **Greek quiet hours** with this simple Chrome extension. Based on [Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/), it provides visual cues and a countdown timer.
 
 ---
 
 ## ✨ Features
 
-### ✅ Dynamic Icon  (🟢 / 🔴)
-Automatically updates between **red** and **green** based on current time and Greek quiet hour rules.
-
-### 📋 User-Friendly Popup  
-Click the extension icon to:
-- View whether it's currently a **Quiet Hour** or **Non-Quiet Hour**
-- See the exact time remaining until the next state change, displayed in an easy-to-read format (e.g., `01:45:32`)
-
-### ⏰ Smart Time Logic  
-Quiet hour rules are automatically calculated based on the date:
-
-- **Summer (April 1 - September 30):**  
-  - Midday: **15:00–17:30**  
-  - Night: **23:00–07:00**
-
-- **Winter (October 1 - March 31):**  
-  - Midday: **15:30–17:30**  
-  - Night: **22:00–07:30**
-
-### 🎨 Modern Design  
-- Clean, intuitive interface  
-- Automatic **Light & Dark themes** based on the time of day.
-- Comfortaa font for a friendly and modern look  
-- Earth-toned color palette  
-- Rounded corners and responsive layout  
-- Inspired by Google Chrome’s own UI language  
+* **Dynamic Icon (🟢 / 🔴):** The extension icon automatically switches between **green** (non-quiet hours) and **soft red** (quiet hours).
+* **Helpful Popup:** Click the icon to see:
+    * Current status: **Quiet Hours** or **Non-Quiet Hours**.
+    * A countdown timer showing time remaining until the next change.
+* **Automatic Dark Mode:** The popup automatically switches to a **dark theme** between 8 PM and 6 AM for comfortable night viewing.
+* **Smart Time Logic:** Accurately follows official quiet hours, adjusting for summer/winter periods:
+    * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
+    * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
+* **Modern Design:** Clean interface with the Comfortaa font, rounded corners, and light/dark themes inspired by Chrome's UI.
 
 ---
 
-## Installation
+## 🛠️ Installation
 
-You can install this extension in two ways:
+Choose your preferred method:
 
-**Method 1: Using Git (Recommended for developers)**
+**1. Using Git (Recommended for Developers)**
 
-1. **Clone the Repository:** Open your terminal or command prompt and run:
-    ```bash
-    git clone https://github.com/Andrewfragkiadakis/music-volume-reminder.git
-    ```
-2.  **Load in Chrome:**
-    * Open Google Chrome and navigate to `chrome://extensions/`.
-    * Ensure **Developer mode** is enabled (usually a toggle switch in the top-right corner).
-    * Click the **Load unpacked** button.
-    * In the file browser that opens, navigate to and select the `chrome-volume-reminder` folder that you just cloned. The extension should now appear in your list.
+   a. **Clone:** Open your terminal and run:
+      ```bash
+      git clone [https://github.com/Andrewfragkiadakis/music-volume-reminder.git](https://github.com/Andrewfragkiadakis/music-volume-reminder.git)
+      ```
+   b. **Load:**
+      * Open Chrome, go to `chrome://extensions/`.
+      * Enable **Developer mode** (top-right toggle).
+      * Click **Load unpacked**.
+      * Select the cloned `music-volume-reminder` folder.
 
-**Method 2: Downloading ZIP File**
+**2. Download ZIP**
 
-1.  **Download the Code:**
-    * Go to the main page of the GitHub repository: `https://github.com/Andrewfragkiadakis/music-volume-reminder`
-    * Click the green **Code** button.
-    * Select **Download ZIP**.
-2.  **Extract the ZIP File:**
-    * Locate the downloaded ZIP file (e.g., `chrome-volume-reminder-main.zip`) on your computer.
-    * Unzip or extract the contents. You should now have a folder named something like `chrome-volume-reminder-main`.
-3.  **Load in Chrome:**
-    * Open Google Chrome and navigate to `chrome://extensions/`.
-    * Ensure **Developer mode** is enabled (usually a toggle switch in the top-right corner).
-    * Click the **Load unpacked** button.
-    * In the file browser that opens, navigate to and select the extracted folder (e.g., `chrome-volume-reminder-main`). The extension should now appear in your list.
+   a. **Download:**
+      * Go to the repository: [https://github.com/Andrewfragkiadakis/music-volume-reminder](https://github.com/Andrewfragkiadakis/music-volume-reminder)
+      * Click **Code** -> **Download ZIP**.
+   b. **Extract:** Unzip the downloaded file (e.g., `music-volume-reminder-main.zip`).
+   c. **Load:**
+      * Open Chrome, go to `chrome://extensions/`.
+      * Enable **Developer mode**.
+      * Click **Load unpacked**.
+      * Select the extracted folder (e.g., `music-volume-reminder-main`).
 
 ---
+
 ## 📸 Screenshots
 
-_Add screenshots here showcasing the popup and how the icon changes depending on the time._
+_(Add screenshots showcasing the popup in light and dark modes, and the icon states)_
 
 ---
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source under the [MIT License](LICENSE).
