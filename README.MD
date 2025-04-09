@@ -1,4 +1,4 @@
-# 🇬🇷 Silence Hero
+# 🇬🇷 Silence Hero - A browser extension
 ![Silence Hero Banner](banner.png)
 
 
