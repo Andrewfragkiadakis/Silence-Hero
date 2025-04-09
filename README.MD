@@ -2,7 +2,8 @@
 ![Silence Hero Banner](banner.png)
 
 
-Manage your music volume according to **Greek quiet hours** with this simple Chrome extension. Based on [Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/), it provides visual cues and a countdown timer.
+Manage your music volume according to **Greek quiet hours** with this simple Chrome extension. 
+Based on [Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/), it provides visual cues and a countdown timer.
 
 ---
 
