@@ -21,8 +21,8 @@
     "alarms"
   ],
   "icons": {
-    "16": "logo.png",
-    "48": "logo.png",
-    "128": "logo.png"
+    "16": "banner.png",
+    "48": "banner.png",
+    "128": "banner.png"
   }
 }
