@@ -1,6 +1,6 @@
 # 🎵 Music Volume Reminder Chrome Extension
 
-A Chrome extension that helps you manage your music volume based on Greek quiet hour rules (Police Order 3 of 1996).  
+A Chrome extension that helps you manage your music volume based on Greek quiet hour rules ([Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/)).
 It dynamically updates its icon (green for non-quiet hours and red for quiet hours) and provides a handy countdown in a stylish popup with rounded corners and modern UI/UX inspired by Google Chrome’s own design language.
 
 ---
