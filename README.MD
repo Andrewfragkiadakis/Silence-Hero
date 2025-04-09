@@ -1,4 +1,4 @@
-# 🇬🇷 Music Volume Reminder Chrome Extension
+# 🇬🇷 Silence Hero
 
 Manage your music volume according to **Greek quiet hours** with this simple Chrome extension. Based on [Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/), it provides visual cues and a countdown timer.
 
@@ -18,7 +18,7 @@ Manage your music volume according to **Greek quiet hours** with this simple Chr
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 Choose your preferred method:
 
@@ -27,7 +27,7 @@ Choose your preferred method:
    1.  **Clone Repository:**
        Open your terminal and run:
 ```bash
-   git clone https://github.com/Andrewfragkiadakis/music-volume-reminder.git
+   git clone https://github.com/Andrewfragkiadakis/Silence-Hero.git
    ```
    2.  **Load in Chrome:**
        * Navigate to `chrome://extensions/`.
@@ -38,20 +38,19 @@ Choose your preferred method:
 **2. Download ZIP**
 
    1.  **Download:**
-       * Go to the repository: [`https://github.com/Andrewfragkiadakis/music-volume-reminder`](https://github.com/Andrewfragkiadakis/music-volume-reminder)
+       * Go to the repository: [`https://github.com/Andrewfragkiadakis/Silence-Hero`](https://github.com/Andrewfragkiadakis/Silence-Hero)
        * Click the green **Code** button, then select **Download ZIP**.
-   2.  **Extract:** Unzip the downloaded file (e.g., `music-volume-reminder-main.zip`) on your computer.
+   2.  **Extract:** Unzip the downloaded file (e.g., `Silence-Hero-main.zip`) on your computer.
    3.  **Load in Chrome:**
        * Navigate to `chrome://extensions/`.
        * Enable **Developer mode**.
        * Click **Load unpacked**.
-       * Select the folder you extracted (e.g., `music-volume-reminder-main`).
+       * Select the folder you extracted (e.g., `Silence-Hero-main`).
 
 ---
 
 ## 📸 Screenshots
 
-_(Add screenshots showcasing the popup in light and dark modes, and the icon states)_
 
 ---
 

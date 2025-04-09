@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Music Volume Reminder",
+  "name": "Silence Hero",
   "version": "1.3",
   "description": "Reminds you if full music volume is allowed based on Greek quiet hours and shows time remaining until the state changes.",
   "author": "Andrew Fragkiadakis",
@@ -11,7 +11,7 @@
       "48": "icons/green-48.png",
       "128": "icons/green-128.png"
     },
-    "default_title": "Volume Reminder",
+    "default_title": "Silence Hero",
     "default_popup": "popup.html"
   },
   "background": {
