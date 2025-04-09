@@ -59,17 +59,3 @@ _Add screenshots here showcasing the popup and how the icon changes depending on
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 🤝 Contributing
-
-Feel free to:
-- Open issues for bugs or feature suggestions
-- Submit pull requests for improvements
----
-
-Enjoy peaceful tunes without breaking the rules! 🇬🇷🔊
-```
-
-Let me know if you want me to help generate screenshots, icons, or code for the popup!
