@@ -1,4 +1,4 @@
-# 🇬🇷 Silence Hero - A browser extension
+# Silence Hero - A browser extension
 ![Silence Hero Banner](banner.png)
 
 
@@ -52,7 +52,7 @@ Choose your preferred method:
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ![Silence Hero Popup Screenshot](screenshot.png)
 
