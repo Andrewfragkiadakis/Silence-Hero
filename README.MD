@@ -4,7 +4,8 @@
 
 ---
 
-**Living in Greece? Love your music loud but hate getting *that knock* from the neighbours (or worse, the police 👮)?**
+**Living in Greece? 
+Love your music loud but hate getting *that knock* from the neighbours (or worse, the police 👮)?**
 
 Fear no more! **Silence Hero** is the simple Chrome extension designed to save your speakers... and your sanity! It's your personal sidekick, keeping track of the official Greek quiet hours (**Police Order 3 of 1996**) so you don't have to constantly check the clock.
 
