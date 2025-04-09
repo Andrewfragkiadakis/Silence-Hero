@@ -1,6 +1,6 @@
 # Silence Hero 🦸‍♂️ - Your Friendly Greek Quiet Hours Reminder
 
-**(MIT License)**
+![Silence Hero Banner](banner.png)
 
 ---
 
@@ -40,7 +40,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 1.  **Clone Repository:** Open your terminal/command prompt and run:
     ```bash
-    git clone [https://github.com/Andrewfragkiadakis/Silence-Hero.git](https://github.com/Andrewfragkiadakis/Silence-Hero.git)
+    git clone https://github.com/Andrewfragkiadakis/Silence-Hero.git
     ```
 2.  **Load in Chrome:**
     * Open Chrome and navigate to `chrome://extensions/`.
