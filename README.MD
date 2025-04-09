@@ -1,4 +1,5 @@
 # 🇬🇷 Silence Hero
+![Silence Hero Logo](logo.png)
 
 Manage your music volume according to **Greek quiet hours** with this simple Chrome extension. Based on [Police Order 3 of 1996](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/diafores/poies-einai-oi-ores-koinis-isychias/), it provides visual cues and a countdown timer.
 
@@ -51,6 +52,7 @@ Choose your preferred method:
 
 ## 📸 Screenshots
 
+![Silence Hero Popup Screenshot](screenshot.png)
 
 ---
 
