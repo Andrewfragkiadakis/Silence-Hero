@@ -25,9 +25,9 @@ Choose your preferred method:
 **1. Using Git (Recommended for Developers)**
 
    a. **Clone:** Open your terminal and run:
-      ```bash
-      git clone [https://github.com/Andrewfragkiadakis/music-volume-reminder.git](https://github.com/Andrewfragkiadakis/music-volume-reminder.git)
-      ```
+         ```bash
+    git clone https://github.com/Andrewfragkiadakis/music-volume-reminder.git
+    ```
    b. **Load:**
       * Open Chrome, go to `chrome://extensions/`.
       * Enable **Developer mode** (top-right toggle).
