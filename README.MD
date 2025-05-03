@@ -31,7 +31,7 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
     * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
 * **Modern Design:** A clean, easy-to-read interface using the Comfortaa font, smooth rounded corners, and slick light/dark themes inspired by Chrome's own UI.
 
-## 🚀 Installation
+##  Installation
 
 Ready to become a Silence Hero? Installing is easy-peasy:
 
@@ -62,7 +62,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 **Boom!** The Silence Hero icon should now appear in your Chrome toolbar, ready for duty!
 
-## 👀 Screenshots
+## Screenshots
 
 ![Website Screenshot](screenshot.png)
 
