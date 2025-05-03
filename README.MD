@@ -51,9 +51,8 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 ### 2. Download ZIP (Easiest Method)
 
-1.  **Download:**
-    * Go to the repository: <https://github.com/Andrewfragkiadakis/Silence-Hero>
-    * Click the green **Code** button, then select **Download ZIP**.
+1. **Download:**  
+   * [Click here to download the ZIP file](https://github.com/Andrewfragkiadakis/Silence-Hero/archive/refs/heads/main.zip)
 2.  **Extract:** Unzip the downloaded file (e.g., `Silence-Hero-main.zip`) somewhere on your computer.
 3.  **Load in Chrome:**
     * Open Chrome and navigate to `chrome://extensions/`.
