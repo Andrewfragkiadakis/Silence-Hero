@@ -8,7 +8,7 @@
 
 **Love your music loud but hate getting *that knock* from the neighbours (or worse, the police 👮)?**
 
-Fear no more! **Silence Hero** is the simple Chrome extension designed to save your speakers... and your sanity! It's your personal sidekick, keeping track of the official Greek quiet hours (**Police Order 3 of 1996**) so you don't have to constantly check the clock.
+Fear no more! **Silence Hero** is the simple Chrome/Edge extension designed to save your speakers... and your sanity! It's your personal sidekick, keeping track of the official Greek quiet hours (**Police Order 3 of 1996**) so you don't have to constantly check the clock.
 
 **Who is this for?**
 
@@ -29,7 +29,7 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
 * **Smart Time Logic:** Knows the difference! Accurately follows the official quiet hours and automatically adjusts for the summer/winter periods:
     * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
     * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
-* **Modern Design:** A clean, easy-to-read interface using the Comfortaa font, smooth rounded corners, and slick light/dark themes inspired by Chrome's own UI.
+* **Modern Design:** A clean, easy-to-read interface using the Comfortaa font, smooth rounded corners, and slick light/dark themes inspired by Chrome/Edge's own UI.
 
 ##  Installation
 
@@ -43,8 +43,8 @@ Ready to become a Silence Hero? Installing is easy-peasy:
     ```bash
     git clone https://github.com/Andrewfragkiadakis/Silence-Hero.git
     ```
-2.  **Load in Chrome:**
-    * Open Chrome and navigate to `chrome://extensions/`.
+2.  **Load in Chrome/Edge:**
+    * Open Chrome/Edge and navigate to `chrome://extensions/` or `edge://extensions/`.
     * Enable **Developer mode** using the toggle switch (usually in the top-right corner).
     * Click the **Load unpacked** button.
     * Select the `Silence-Hero` (or `music-volume-reminder` if that's the folder name inside) directory you just cloned.
@@ -54,8 +54,8 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 1. **Download:**  
    * [Click here to download the ZIP file](https://github.com/Andrewfragkiadakis/Silence-Hero/archive/refs/heads/main.zip)
 2.  **Extract:** Unzip the downloaded file (e.g., `Silence-Hero-main.zip`) somewhere on your computer.
-3.  **Load in Chrome:**
-    * Open Chrome and navigate to `chrome://extensions/`.
+3.  **Load in Chrome/Edge:**
+    * Open Chrome/Edge and navigate to `chrome://extensions/` or `edge://extensions/`.
     * Enable **Developer mode** (toggle switch, usually top-right).
     * Click the **Load unpacked** button.
     * Select the folder you extracted (e.g., `Silence-Hero-main`).
