@@ -11,15 +11,16 @@ function getMinutesSinceMidnight(date) {
     let middayQuiet = false;
     let nightQuiet = false;
   
-    if (isSummer) {
-        // Summer quiet: 15:00 to 17:30 and 23:00 to 07:00
-        middayQuiet = (minutes >= 900 && minutes < 1050); // 15:00 <= time < 17:30
-        nightQuiet = (minutes >= 1380 || minutes < 420); // 23:00 <= time or time < 07:00
-    } else {
-        // Winter quiet: 15:30 to 17:30 and 22:00 to 07:30
-        middayQuiet = (minutes >= 930 && minutes < 1050); // 15:30 <= time < 17:30
-        nightQuiet = (minutes >= 1320 || minutes < 450); // 22:00 <= time or time < 07:30
-    }
+  // In popup.js isQuietTime()
+if (isSummer) {
+    // Summer quiet: 15:00 to 17:30 and 23:00 to 07:00
+    middayQuiet = (minutes >= 900 && minutes <= 1050); // 15:00 <= time <= 17:30
+    nightQuiet = (minutes >= 1380 || minutes < 420);
+} else {
+    // Winter quiet: 15:30 to 17:30 and 22:00 to 07:30
+    middayQuiet = (minutes >= 930 && minutes <= 1050); // 15:30 <= time <= 17:30
+    nightQuiet = (minutes >= 1320 || minutes < 450);
+}
     return middayQuiet || nightQuiet;
     // *** End of quiet hours determination ***
   }
