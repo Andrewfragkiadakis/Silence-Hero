@@ -4,6 +4,7 @@ function isQuietTime() {
   const minutes = now.getHours() * 60 + now.getMinutes();
   const month = now.getMonth(); // 0 = January, ... 11 = December
   const isSummer = month >= 3 && month <= 8; // April (3) to September (8)
+  
   let middayQuiet = false;
   let nightQuiet = false;
   
@@ -16,6 +17,7 @@ function isQuietTime() {
     middayQuiet = (minutes >= 930 && minutes <= 1050);
     nightQuiet = (minutes >= 1320 || minutes < 450);
   }
+  
   return middayQuiet || nightQuiet;
 }
 
@@ -34,24 +36,44 @@ function getIconData(color, size) {
 function updateIcon() {
   const quiet = isQuietTime();
   const color = quiet ? 'red' : 'green';
-
   const imageData = {
     "16": getIconData(color, 16),
     "32": getIconData(color, 32),
     "48": getIconData(color, 48),
     "128": getIconData(color, 128)
   };
-
+  
   chrome.action.setIcon({ imageData: imageData });
 }
 
 // Set an alarm to update the icon every minute.
 chrome.alarms.create('updateIcon', { periodInMinutes: 1 });
+
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'updateIcon') {
     updateIcon();
   }
 });
 
+// Initialize command listener - this was causing the error
+if (chrome.commands) {
+  chrome.commands.onCommand.addListener((command) => {
+    console.log(`Command received: ${command}`);
+    if (command === 'toggle-quiet-mode') {
+      // Handle your command logic here
+      console.log('Toggling quiet mode');
+    }
+  });
+}
+
 // Update the icon immediately when the service worker starts.
 updateIcon();
+
+// Listen for runtime messages from popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'updateIcon') {
+    updateIcon();
+    sendResponse({success: true});
+  }
+  return true; // Keep message channel open for async response
+});
