@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silence Hero Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comfortaa', sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .dark-mode {
+      background-color: #292a2d;
+      color: #e8eaed;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #4285f4;
+      font-size: 42px;
+    }
+    
+    .dark-mode h1 {
+      color: #8ab4f8;
+    }
+    
+    .settings-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    
+    @media (max-width: 768px) {
+      .settings-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .setting-group {
+      background-color: #f5f5f5;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: background-color 0.3s;
+    }
+    
+    .dark-mode .setting-group {
+      background-color: #35363a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .setting-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #4285f4;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    
+    .dark-mode .setting-title {
+      color: #8ab4f8;
+      border-bottom-color: #5f6368;
+    }
+    
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.4;
+      max-width: 70%;
+    }
+    
+    .volume-control label {
+      font-size: 18px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    
+    .volume-control {
+      margin: 20px 0;
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #d3d3d3;
+      outline: none;
+    }
+    
+    .dark-mode input[type="range"] {
+      background: #5f6368;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #4285f4;
+      cursor: pointer;
+    }
+    
+    .dark-mode input[type="range"]::-webkit-slider-thumb {
+      background: #8ab4f8;
+    }
+    
+    .volume-display {
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 15px;
+      color: #4285f4;
+      font-weight: bold;
+    }
+    
+    .dark-mode .volume-display {
+      color: #8ab4f8;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #4285f4;
+    }
+    
+    .dark-mode input:checked + .slider {
+      background-color: #8ab4f8;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      font-family: 'Comfortaa', sans-serif;
+      transition: background-color 0.3s;
+      margin-top: 25px;
+      width: 100%;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    .dark-mode button {
+      background-color: #8ab4f8;
+      color: #202124;
+    }
+    
+    .dark-mode button:hover {
+      background-color: #aecbfa;
+    }
+    
+    .info-box {
+      background-color: #e8f0fe;
+      border-left: 4px solid #4285f4;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 16px;
+    }
+    
+    .dark-mode .info-box {
+      background-color: #3c4043;
+      border-left-color: #8ab4f8;
+    }
+    
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+      font-size: 18px;
+    }
+    
+    .dark-mode .success-message {
+      background-color: #2d3748;
+      color: #68d391;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .dark-mode .footer {
+      color: #9aa0a6;
+    }
+    
+    p, li {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Silence Hero Settings</h1>
+  
+  <div class="settings-container">
+    <div class="setting-group">
+      <div class="setting-title">Notifications</div>
+      
+      <div class="setting-row">
+        <label for="notifications">Show notifications when quiet hours change:</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="notifications" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="setting-row">
+        <label for="soundEnabled">Play sound on quiet hours transition:</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soundEnabled">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    
+    <div class="setting-group">
+      <div class="setting-title">Volume Recommendation</div>
+      
+      <div class="info-box">
+        <p><strong>Note:</strong> Silence Hero does not directly control your device's volume. It provides recommendations based on Greek quiet hour regulations.</p>
+      </div>
+      
+      <div class="volume-control">
+        <label for="quietVolume">Recommended Quiet Hours Volume Level:</label>
+        <input type="range" id="quietVolume" min="0" max="100" value="30">
+        <div class="volume-display" id="volumeDisplay">30%</div>
+      </div>
+    </div>
+    
+    <div class="setting-group">
+      <div class="setting-title">Appearance</div>
+      
+      <div class="setting-row">
+        <label for="darkModeAuto">Automatic dark mode (8 PM - 6 AM):</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="darkModeAuto" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    
+    <div class="setting-group">
+      <div class="setting-title">About Quiet Hours</div>
+      
+      <p>Greek quiet hours are regulated by Police Order 3 of 1996:</p>
+      <ul>
+        <li><strong>Summer (Apr-Sep):</strong> 15:00-17:30 & 23:00-07:00</li>
+        <li><strong>Winter (Oct-Mar):</strong> 15:30-17:30 & 22:00-07:30</li>
+      </ul>
+      
+      <p>During these hours, noise should be kept to a minimum to respect neighbors and comply with local regulations.</p>
+    </div>
+  </div>
+  
+  <button id="saveSettings">Save Settings</button>
+  
+  <div id="successMessage" class="success-message">Settings saved successfully!</div>
+  
+  <div class="footer">
+    Silence Hero v1.4 | Created by Andrew Fragkiadakis
+  </div>
+  
+  <script src="settings.js"></script>
+</body>
+</html>

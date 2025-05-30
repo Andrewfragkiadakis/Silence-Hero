@@ -1,0 +1,109 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+    width: 300px;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px; /* Base font size increased */
+  }
+  
+  .dark-mode {
+    background-color: #292a2d;
+    color: #e8eaed;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4285f4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .state, .timer {
+    font-size: 1.2em; /* Increased from 1.2em */
+    text-align: center;
+    margin: 10px 0;
+    padding: 12px; /* Slightly increased padding */
+    border-radius: 5px;
+  }
+  
+  .quiet {
+    background-color: #ffcccb;
+    color: #8b0000;
+  }
+  
+  .non-quiet {
+    background-color: #90ee90;
+    color: #006400;
+  }
+  
+  .dark-mode .quiet {
+    background-color: #4a0e0d;
+    color: #ffcccb;
+  }
+  
+  .dark-mode .non-quiet {
+    background-color: #1a4a1a;
+    color: #90ee90;
+  }
+  
+  #nextEvent {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 1em; /* Added font size */
+  }
+  
+  .instruction {
+    text-align: center;
+    font-style: italic;
+    margin: 15px 0;
+    font-size: 1em; /* Added font size */
+  }
+  
+  button {
+    background-color: transparent;
+    color: #4285f4;
+    border: none;
+    cursor: pointer;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #settingsButton svg {
+    width: 20px;
+    height: 20px;
+    fill: #4285f4;
+    transition: fill 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .dark-mode button {
+    color: #8ab4f8;
+  }
+  
+  .dark-mode #settingsButton svg {
+    fill: #8ab4f8;
+  }
+  
+  .timer {
+    font-size: 2.2em; /* Increased from default 2em based on the screenshot */
+    font-weight: bold;
+  }
+  
+  strong {
+    font-size: 1.05em; /* Make the state text slightly larger */
+  }
+  
