@@ -66,7 +66,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 ## Screenshots
 
-![Website Screenshot](screenshot.png?v=2)
+![Website Screenshot](screenshot.png?v=3)
 
 ## 📄 License
 
