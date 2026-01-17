@@ -1,0 +1,23 @@
+{
+    "appName": {
+        "message": "Silence Hero"
+    },
+    "appDesc": {
+        "message": "Σας υπενθυμίζει αν επιτρέπεται η ένταση της μουσικής με βάση τις ώρες κοινής ησυχίας."
+    },
+    "quietHours": {
+        "message": "Ώρες Κοινής Ησυχίας"
+    },
+    "normalHours": {
+        "message": "Εκτός Ωρών Ησυχίας"
+    },
+    "nextChange": {
+        "message": "Επόμενη αλλαγή"
+    },
+    "instruction": {
+        "message": "Ρυθμίστε την ένταση σύμφωνα με τους κανονισμούς."
+    },
+    "settings": {
+        "message": "Ρυθμίσεις"
+    }
+}

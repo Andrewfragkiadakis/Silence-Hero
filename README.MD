@@ -21,15 +21,17 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
 
 ## ✨ Features (aka Superpowers!)
 
-* **Dynamic Icon (🟢 / 🔴):** The extension icon is your instant status check! It automatically switches between **green** (Go Loud!) and a **soft red** (Shhh... Quiet Hours) based on the current time.
-* **Helpful Popup:** Click the icon for the intel:
-    * **Current status:** Clearly states `Quiet Hours` or `Non-Quiet Hours`.
-    * **Countdown Timer:** Shows exactly how much time is left until the next status change. No more guesswork!
-* **Automatic Dark Mode:** Like a true hero working in the shadows, the popup automatically switches to a **dark theme** between 8 PM and 6 AM for comfortable night viewing. Your eyes will thank you.
+* **Dynamic Icon (🟢 / 🔴):** The extension icon is your instant status check! It automatically switches between **green** (Go Loud!) and a **soft red** (Shhh... Quiet Hours) with a pulsing animation to keep you alert.
+* **Glassmorphism UI:** A stunning, modern interface featuring frosted glass effects, clean **Inter** typography, and smooth animations. It looks as good as your music sounds!
+* **Global Hero (i18n):** Automatically speaks your language! Fully localized for **English** and **Greek** based on your browser settings.
+* **Customizable Settings:** Control your experience via the new Settings page:
+    *   Toggle **Notifications** for status changes.
+    *   Enable subtle **Sound Alerts**.
+    *   Set your preferred **"Quiet Volume"** recommendation level.
+    *   **Auto Dark Mode:** Automatically switches theme based on time (8 PM - 6 AM).
 * **Smart Time Logic:** Knows the difference! Accurately follows the official quiet hours and automatically adjusts for the summer/winter periods:
     * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
     * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
-* **Modern Design:** A clean, easy-to-read interface using the Comfortaa font, smooth rounded corners, and slick light/dark themes inspired by Chrome/Edge's own UI.
 
 ##  Installation
 
@@ -47,7 +49,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
     * Open Chrome/Edge and navigate to `chrome://extensions/` or `edge://extensions/`.
     * Enable **Developer mode** using the toggle switch (usually in the top-right corner).
     * Click the **Load unpacked** button.
-    * Select the `Silence-Hero` (or `music-volume-reminder` if that's the folder name inside) directory you just cloned.
+    * Select the `Silence-Hero` directory you just cloned.
 
 ### 2. Download ZIP (Easiest Method)
 
@@ -74,4 +76,3 @@ This project is open-source and free to use under the **MIT License**. Feel free
 I’m an IT & Computer Engineering student with expertise in networking, system administration, and web development. 
 
 Built with ❤️ using HTML, CSS, and JavaScript.
-

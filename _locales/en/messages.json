@@ -1,0 +1,9 @@
+{
+  "appName": { "message": "Silence Hero" },
+  "appDesc": { "message": "Reminds you if full music volume is allowed based on Greek quiet hours." },
+  "quietHours": { "message": "Quiet Hours" },
+  "normalHours": { "message": "Normal Hours" },
+  "nextChange": { "message": "Next change at" },
+  "instruction": { "message": "Adjust your volume according to Greek quiet hour rules." },
+  "settings": { "message": "Settings" }
+}
