@@ -27,7 +27,7 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
 * **Customizable Settings:** Control your experience via the new Settings page:
     *   Toggle **Notifications** for status changes.
     *   Enable subtle **Sound Alerts**.
-    *   Set your preferred **"Quiet Volume"** recommendation level.
+
     *   **Auto Dark Mode:** Automatically switches theme based on time (8 PM - 6 AM).
 * **Smart Time Logic:** Knows the difference! Accurately follows the official quiet hours and automatically adjusts for the summer/winter periods:
     * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
