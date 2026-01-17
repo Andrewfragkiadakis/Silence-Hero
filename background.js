@@ -1,19 +1,13 @@
 import { getQuietHoursState } from './quietTimeLogic.js';
 
-// Generates ImageData for a circular icon of the specified size and color.
+// --- Icon Generation ---
 function getIconData(color, size) {
   try {
     const canvas = new OffscreenCanvas(size, size);
     const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.error(`Failed to get 2D context for OffscreenCanvas of size ${size}`);
-      return null;
-    }
+    if (!ctx) return null;
 
-    // Clear canvas
     ctx.clearRect(0, 0, size, size);
-
-    // Dynamic Icon: Circle with a clear indicator
     const center = size / 2;
     const radius = size / 2;
 
@@ -24,16 +18,14 @@ function getIconData(color, size) {
 
     return ctx.getImageData(0, 0, size, size);
   } catch (error) {
-    console.error(`Error in getIconData for color ${color}, size ${size}:`, error);
+    console.error(`Error generating icon:`, error);
     return null;
   }
 }
 
-// Updates the extension icon based on the current time.
-function updateIcon() {
+function updateIconUI(isQuiet) {
   try {
-    const { isQuiet } = getQuietHoursState();
-    const color = isQuiet ? '#D32F2F' : '#388E3C'; // Material Red 700 / Green 700
+    const color = isQuiet ? '#D32F2F' : '#388E3C';
     const stateText = isQuiet ? chrome.i18n.getMessage("quietHours") : chrome.i18n.getMessage("normalHours");
 
     const iconSizes = [16, 32, 48, 128];
@@ -49,10 +41,8 @@ function updateIcon() {
     }
 
     if (generatedCount === iconSizes.length) {
-      chrome.action.setIcon({ imageData: imageData })
-        .catch(e => console.error("Error setting icon:", e));
+      chrome.action.setIcon({ imageData: imageData }).catch(() => { });
     } else {
-      // Fallback
       const basePath = isQuiet ? "icons/red-" : "icons/green-";
       chrome.action.setIcon({
         path: {
@@ -61,22 +51,85 @@ function updateIcon() {
           "48": `${basePath}48.png`,
           "128": `${basePath}128.png`
         }
-      }).catch(e => console.error("Error fallback icon:", e));
+      }).catch(() => { });
     }
 
-    // Update Title (Tooltip)
     chrome.action.setTitle({ title: `Silence Hero: ${stateText}` });
-
-    // Update Badge (optional, but helpful "GLANCE" factor)
-    // chrome.action.setBadgeText({ text: isQuiet ? "Q" : "" });
-    // chrome.action.setBadgeBackgroundColor({ color: isQuiet ? "#D32F2F" : "#388E3C" });
-
   } catch (error) {
-    console.error('Error in updateIcon:', error);
+    console.error('Error updating UI:', error);
   }
 }
 
-// Manage the alarm for periodic icon updates.
+// --- Sound Logic (Offscreen) ---
+async function playSound() {
+  try {
+    const offscreenUrl = chrome.runtime.getURL('offscreen.html');
+
+    // check if it exists
+    const existingContexts = await chrome.runtime.getContexts({
+      contextTypes: ['OFFSCREEN_DOCUMENT'],
+      documentUrls: [offscreenUrl]
+    });
+
+    if (existingContexts.length === 0) {
+      await chrome.offscreen.createDocument({
+        url: 'offscreen.html',
+        reasons: ['AUDIO_PLAYBACK'],
+        justification: 'Notification sound',
+      });
+    }
+
+    chrome.runtime.sendMessage({ target: 'offscreen', type: 'play_sound' });
+  } catch (e) {
+    console.error("Audio playback failed:", e);
+  }
+}
+
+// --- Main Update Logic ---
+async function updateState() {
+  const { isQuiet } = getQuietHoursState();
+
+  // 1. Update UI (Always)
+  updateIconUI(isQuiet);
+
+  // 2. Check for State Change
+  const data = await chrome.storage.local.get(['lastQuietState']);
+  const lastState = data.lastQuietState;
+
+  // Only trigger if we have a previous state to compare against (don't alert on browser startup/fresh install)
+  if (lastState !== undefined && lastState !== isQuiet) {
+
+    const settings = await chrome.storage.sync.get(['notifications', 'soundEnabled']);
+
+    // Notifications
+    if (settings.notifications !== false) { // Default true
+      const title = isQuiet ? chrome.i18n.getMessage("quietHours") : chrome.i18n.getMessage("normalHours");
+      const msg = isQuiet ? chrome.i18n.getMessage("instruction") : "You can play music normally."; // Simplify message
+
+      // Note: Notifications require local file paths for icons usually
+      const iconPath = isQuiet ? "icons/red-48.png" : "icons/green-48.png";
+
+      chrome.notifications.create({
+        type: 'basic',
+        iconUrl: iconPath,
+        title: "Silence Hero: " + title,
+        message: msg,
+        priority: 1
+      });
+    }
+
+    // Sound
+    if (settings.soundEnabled) {
+      playSound();
+    }
+  }
+
+  // Save current state
+  await chrome.storage.local.set({ lastQuietState: isQuiet });
+}
+
+
+// --- Alarms & Initialization ---
 async function setupAlarm() {
   const alarm = await chrome.alarms.get('updateIcon');
   if (!alarm) {
@@ -86,25 +139,27 @@ async function setupAlarm() {
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'updateIcon') {
-    updateIcon();
+    updateState();
   }
 });
 
-// Listener for extension startup or installation
 chrome.runtime.onStartup.addListener(() => {
   setupAlarm();
-  updateIcon();
+  updateState();
 });
 
 chrome.runtime.onInstalled.addListener((details) => {
   setupAlarm();
-  updateIcon();
+  updateState();
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     chrome.tabs.create({ url: "settings.html" });
+    // Initialize storage to prevent immediate notification
+    const { isQuiet } = getQuietHoursState();
+    chrome.storage.local.set({ lastQuietState: isQuiet });
   }
 });
 
-// Initial setup
+// Initial run
 setupAlarm();
-updateIcon();
+updateState();

@@ -22,7 +22,9 @@
   },
   "permissions": [
     "alarms",
-    "storage"
+    "storage",
+    "notifications",
+    "offscreen"
   ],
   "commands": {
     "toggle-quiet-mode": {
