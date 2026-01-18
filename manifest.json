@@ -36,8 +36,8 @@
     }
   },
   "icons": {
-    "16": "logo.png",
-    "48": "logo.png",
-    "128": "logo.png"
+    "16": "icons/green-16.png",
+    "48": "icons/green-48.png",
+    "128": "icons/green-128.png"
   }
 }
