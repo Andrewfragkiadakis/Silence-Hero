@@ -66,7 +66,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 ## Screenshots
 
-![Website Screenshot](screenshot.png?v=3)
+<img src="screenshot.png?v=3" width="50%" alt="Silence Hero Screenshot">
 
 ## 📄 License
 
