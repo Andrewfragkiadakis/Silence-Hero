@@ -28,6 +28,7 @@ zip -r -X "$OUT" \
   onboarding.css \
   onboarding.js \
   icons \
+  fonts \
   _locales \
   -x '**/.DS_Store'
 
