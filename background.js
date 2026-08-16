@@ -1,4 +1,4 @@
-import { getQuietHoursState } from './quietTimeLogic.js';
+import { getEffectiveState } from './state.js';
 
 // --- Icon Generation ---
 function getIconData(color, size) {
@@ -61,6 +61,8 @@ function updateIconUI(isQuiet) {
 }
 
 // --- Sound Logic (Offscreen) ---
+let offscreenCloseTimer = null;
+
 async function playSound() {
   try {
     const offscreenUrl = chrome.runtime.getURL('offscreen.html');
@@ -80,6 +82,13 @@ async function playSound() {
     }
 
     chrome.runtime.sendMessage({ target: 'offscreen', type: 'play_sound' });
+
+    // Sound clip is ~0.6s; close the document shortly after so it doesn't
+    // linger in memory for the lifetime of the browser session.
+    clearTimeout(offscreenCloseTimer);
+    offscreenCloseTimer = setTimeout(() => {
+      chrome.offscreen.closeDocument().catch(() => { });
+    }, 1000);
   } catch (e) {
     console.error("Audio playback failed:", e);
   }
@@ -87,14 +96,18 @@ async function playSound() {
 
 // --- Main Update Logic ---
 async function updateState() {
-  const { isQuiet } = getQuietHoursState();
+  const { isQuiet } = await getEffectiveState();
 
-  // 1. Update UI (Always)
-  updateIconUI(isQuiet);
-
-  // 2. Check for State Change
+  // 1. Check for State Change
   const data = await chrome.storage.local.get(['lastQuietState']);
   const lastState = data.lastQuietState;
+  const stateChanged = lastState === undefined || lastState !== isQuiet;
+
+  // 2. Update UI only when the state actually changed (avoid redrawing the
+  // icon on every alarm tick when nothing changed)
+  if (stateChanged) {
+    updateIconUI(isQuiet);
+  }
 
   // Only trigger if we have a previous state to compare against (don't alert on browser startup/fresh install)
   if (lastState !== undefined && lastState !== isQuiet) {
@@ -148,16 +161,33 @@ chrome.runtime.onStartup.addListener(() => {
   updateState();
 });
 
-chrome.runtime.onInstalled.addListener((details) => {
+chrome.runtime.onInstalled.addListener(async (details) => {
   setupAlarm();
   updateState();
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     chrome.tabs.create({ url: "settings.html" });
     // Initialize storage to prevent immediate notification
-    const { isQuiet } = getQuietHoursState();
+    const { isQuiet } = await getEffectiveState();
     chrome.storage.local.set({ lastQuietState: isQuiet });
   }
+});
+
+// --- Commands (keyboard shortcuts) ---
+chrome.commands.onCommand.addListener(async (command) => {
+  if (command !== 'toggle-quiet-mode') return;
+
+  // Manually force the opposite state until the next natural schedule
+  // transition, then revert to following the schedule automatically.
+  const effective = await getEffectiveState();
+  await chrome.storage.local.set({
+    manualOverride: {
+      isQuiet: !effective.isQuiet,
+      expires: effective.nextChange.getTime()
+    }
+  });
+
+  await updateState();
 });
 
 // Initial run

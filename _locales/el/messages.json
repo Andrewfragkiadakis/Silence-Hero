@@ -19,5 +19,8 @@
     },
     "settings": {
         "message": "Ρυθμίσεις"
+    },
+    "manualOverride": {
+        "message": "Χειροκίνητη Παράκαμψη"
     }
 }

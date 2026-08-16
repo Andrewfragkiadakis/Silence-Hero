@@ -19,7 +19,16 @@
       --card-border: rgba(255, 255, 255, 0.1);
     }
   }
-  
+
+  /* Applied by popup.js when Auto Dark Mode is on and it's between 8 PM-6 AM,
+     regardless of OS-level color scheme preference. */
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e8eaed;
+    --card-bg: rgba(30, 30, 30, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+  }
+
   body {
     font-family: var(--font-stack);
     background-color: var(--bg-color);
@@ -138,7 +147,19 @@
     color: var(--status-color);
     transition: color 0.5s ease;
   }
-  
+
+  .override-badge {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    margin: -14px 0 20px 0;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background-color: rgba(128, 128, 128, 0.15);
+  }
+
   .timer-section {
       text-align: center;
       width: 100%;

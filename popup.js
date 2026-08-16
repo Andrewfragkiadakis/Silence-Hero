@@ -1,4 +1,4 @@
-import { getQuietHoursState } from './quietTimeLogic.js';
+import { getEffectiveState } from './state.js';
 
 // DOM Elements
 const appNameEl = document.getElementById('appName');
@@ -9,6 +9,29 @@ const statusPulse = document.getElementById('statusPulse');
 const timerEl = document.getElementById('timer');
 const nextChangeLabelEl = document.getElementById('nextChangeLabel');
 const instructionEl = document.getElementById('instruction');
+const overrideBadgeEl = document.getElementById('overrideBadge');
+
+// --- Theme (Auto Dark Mode) ---
+let darkModeAuto = true;
+
+function applyTheme() {
+    if (darkModeAuto) {
+        const hour = new Date().getHours();
+        // 8 PM (20) to 6 AM (6) - mirrors settings.js
+        if (hour >= 20 || hour < 6) {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+    document.body.classList.remove('dark-mode');
+}
+
+chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'sync' && changes.darkModeAuto) {
+        darkModeAuto = changes.darkModeAuto.newValue;
+        applyTheme();
+    }
+});
 
 /**
  * Format milliseconds into HH:MM:SS
@@ -31,8 +54,10 @@ function formatTime(ms) {
 /**
  * Update the UI based on current state
  */
-function updateDisplay() {
-    const { isQuiet, nextChange } = getQuietHoursState();
+async function updateDisplay() {
+    const { isQuiet, nextChange, overridden } = await getEffectiveState();
+
+    overrideBadgeEl.hidden = !overridden;
 
     // Status Text & Styling
     if (isQuiet) {
@@ -58,11 +83,12 @@ function updateDisplay() {
 /**
  * Initialize
  */
-function init() {
+async function init() {
     // Localization
     appNameEl.textContent = chrome.i18n.getMessage("appName");
     instructionEl.textContent = chrome.i18n.getMessage("instruction");
     settingsButton.title = chrome.i18n.getMessage("settings");
+    overrideBadgeEl.textContent = chrome.i18n.getMessage("manualOverride");
 
     // Event Listeners
     settingsButton.addEventListener('click', () => {
@@ -73,9 +99,17 @@ function init() {
         }
     });
 
+    // Theme
+    const stored = await chrome.storage.sync.get({ darkModeAuto: true });
+    darkModeAuto = stored.darkModeAuto;
+    applyTheme();
+
     // Start Loop
     updateDisplay();
-    setInterval(updateDisplay, 1000);
+    setInterval(() => {
+        updateDisplay();
+        applyTheme();
+    }, 1000);
 }
 
 init();
