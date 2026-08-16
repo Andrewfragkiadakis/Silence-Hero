@@ -20,8 +20,23 @@
     "settings": {
         "message": "Ρυθμίσεις"
     },
-    "manualOverride": {
-        "message": "Χειροκίνητη Παράκαμψη"
+    "override": {
+        "message": "Παράκαμψη"
+    },
+    "overrideCancel": {
+        "message": "Ακύρωση παράκαμψης"
+    },
+    "overrideHintDefault": {
+        "message": "Επανέρχεται αυτόματα στην επόμενη αλλαγή."
+    },
+    "overrideHintActive": {
+        "message": "Επιστροφή στο κανονικό πρόγραμμα στην επόμενη αλλαγή."
+    },
+    "back": {
+        "message": "Πίσω"
+    },
+    "next": {
+        "message": "Επόμενο"
     },
     "onboardingTitle": {
         "message": "Καλώς ήρθατε στον Silence Hero"

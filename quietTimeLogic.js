@@ -45,32 +45,52 @@ function getConfig(date) {
 }
 
 /**
- * Returns the state of quiet hours and the next change date.
- * @returns {{ isQuiet: boolean, nextChange: Date }}
+ * Returns the state of quiet hours, the next change date, and the previous
+ * change date (when the current state began - used to render a progress
+ * meter for how far through the current window we are).
+ * @returns {{ isQuiet: boolean, nextChange: Date, prevChange: Date }}
  */
 export function getQuietHoursState() {
   const now = new Date();
   const currentMinutes = getMinutesOfDay(now);
   const config = getConfig(now);
-  
+
   // 1. Determine current state
   // We sort transitions by time just to be safe
-  const transitions = config.TRANSITIONS.sort((a, b) => a.time - b.time);
-  
+  const transitions = config.TRANSITIONS.slice().sort((a, b) => a.time - b.time);
+
   // Default to the state of the last transition of the "previous day"
   // Which corresponds to the last entry in the list (since it wraps around)
   let currentState = transitions[transitions.length - 1].isQuiet;
 
-  // Find where we are in today's timeline
+  // Find where we are in today's timeline, and which transition produced
+  // the current state (if any happened earlier today)
+  let prevTransToday = null;
   for (const trans of transitions) {
     if (currentMinutes >= trans.time) {
       currentState = trans.isQuiet;
+      prevTransToday = trans;
     } else {
-      break; 
+      break;
     }
   }
 
-  // 2. Determine Next Change
+  // 2. Determine when the current state began
+  let prevChangeDate;
+  if (prevTransToday) {
+    prevChangeDate = new Date(now);
+    prevChangeDate.setHours(0, prevTransToday.time, 0, 0);
+  } else {
+    // Current state carried over from yesterday's last transition
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayConfig = getConfig(yesterday);
+    const lastTrans = yesterdayConfig.TRANSITIONS.slice().sort((a, b) => a.time - b.time).slice(-1)[0];
+    prevChangeDate = new Date(yesterday);
+    prevChangeDate.setHours(0, lastTrans.time, 0, 0);
+  }
+
+  // 3. Determine Next Change
   let nextChangeDate = null;
 
   // Look for next transition later today
@@ -88,11 +108,11 @@ export function getQuietHoursState() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     const tomorrowConfig = getConfig(tomorrow);
     // The first transition of the day
-    const firstTrans = tomorrowConfig.TRANSITIONS.sort((a, b) => a.time - b.time)[0];
-    
+    const firstTrans = tomorrowConfig.TRANSITIONS.slice().sort((a, b) => a.time - b.time)[0];
+
     nextChangeDate = new Date(tomorrow);
     nextChangeDate.setHours(0, firstTrans.time, 0, 0);
   }
 
-  return { isQuiet: currentState, nextChange: nextChangeDate };
+  return { isQuiet: currentState, nextChange: nextChangeDate, prevChange: prevChangeDate };
 }

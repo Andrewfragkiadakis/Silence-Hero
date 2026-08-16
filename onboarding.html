@@ -11,106 +11,117 @@
 </head>
 
 <body>
-  <div class="main-container">
-    <header>
-      <h1 id="onboardingTitle">Welcome to Silence Hero</h1>
-      <div class="subtitle" id="onboardingSubtitle">Silence Hero</div>
-    </header>
+  <div class="main-container onboarding-container">
+    <div class="onboarding-card">
 
-    <div class="settings-card">
-      <div class="section-title">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9"></circle>
-        </svg>
-        <span id="iconSectionTitle">How the icon works</span>
-      </div>
+      <!-- Step 1: icon meaning -->
+      <div class="onboarding-step active" data-step="0">
+        <div class="section-title">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"></circle>
+          </svg>
+          <span id="iconSectionTitle">How the icon works</span>
+        </div>
+        <h1 id="onboardingTitle">Welcome to Silence Hero</h1>
+        <p class="onboarding-note" id="onboardingSubtitle">Silence Hero</p>
 
-      <div class="onboarding-icon-row">
-        <div class="onboarding-icon-item">
-          <span class="status-dot dot-green"></span>
-          <div>
-            <div class="onboarding-item-title" id="iconNormalTitle">Normal Hours</div>
-            <div class="onboarding-item-desc" id="iconNormalDesc">Normal hours — play music freely.</div>
+        <div class="onboarding-icon-row">
+          <div class="onboarding-icon-item">
+            <span class="status-dot dot-green" id="iconNormalGlyph"></span>
+            <div>
+              <div class="onboarding-item-title" id="iconNormalTitle">Normal Hours</div>
+              <div class="onboarding-item-desc" id="iconNormalDesc">Normal hours — play music freely.</div>
+            </div>
+          </div>
+          <div class="onboarding-icon-item">
+            <span class="status-dot dot-red" id="iconQuietGlyph"></span>
+            <div>
+              <div class="onboarding-item-title" id="iconQuietTitle">Quiet Hours</div>
+              <div class="onboarding-item-desc" id="iconQuietDesc">Quiet hours — please keep the volume down.</div>
+            </div>
           </div>
         </div>
-        <div class="onboarding-icon-item">
-          <span class="status-dot dot-red"></span>
-          <div>
-            <div class="onboarding-item-title" id="iconQuietTitle">Quiet Hours</div>
-            <div class="onboarding-item-desc" id="iconQuietDesc">Quiet hours — please keep the volume down.</div>
+      </div>
+
+      <!-- Step 2: schedule -->
+      <div class="onboarding-step" data-step="1">
+        <div class="section-title">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 3"></path>
+          </svg>
+          <span id="scheduleSectionTitle">The official schedule</span>
+        </div>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th id="scheduleColAfternoon">Afternoon</th>
+              <th id="scheduleColNight">Night</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="scheduleSummerLabel">Summer (Apr 1 - Sep 30)</td>
+              <td>15:00-17:30</td>
+              <td>23:00-07:00</td>
+            </tr>
+            <tr>
+              <td id="scheduleWinterLabel">Winter (Oct 1 - Mar 31)</td>
+              <td>15:30-17:30</td>
+              <td>22:00-07:30</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="onboarding-note" id="scheduleNote">Based on Police Order 3 of 1996. Silence Hero switches automatically, so you never have to remember the dates.</p>
+      </div>
+
+      <!-- Step 3: shortcut + pin -->
+      <div class="onboarding-step" data-step="2">
+        <div class="section-title">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+            <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"></path>
+          </svg>
+          <span id="shortcutSectionTitle">Keyboard shortcut</span>
+        </div>
+
+        <div class="kbd-row">
+          <span class="kbd">Ctrl</span><span class="kbd-plus">+</span><span class="kbd">Shift</span><span class="kbd-plus">+</span><span class="kbd">Q</span>
+          <span class="kbd-or">/</span>
+          <span class="kbd">Cmd</span><span class="kbd-plus">+</span><span class="kbd">Shift</span><span class="kbd-plus">+</span><span class="kbd">Q</span>
+        </div>
+        <p class="onboarding-note" id="shortcutDesc">Manually override the current state at any time. It reverts automatically at the next scheduled change.</p>
+
+        <!-- Pin Instruction (matches settings.html) -->
+        <div class="pin-instruction">
+          <div class="pin-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <line x1="12" y1="17" x2="12" y2="22"></line>
+              <path
+                d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z">
+              </path>
+            </svg>
+          </div>
+          <div class="pin-text">
+            <h3>Keep it handy!</h3>
+            <p>Pin Silence Hero to your toolbar for quick access to the Quiet Hours timer.</p>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="settings-card">
-      <div class="section-title">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9"></circle>
-          <path d="M12 7v5l3 3"></path>
-        </svg>
-        <span id="scheduleSectionTitle">The official schedule</span>
+      <div class="onboarding-footer">
+        <div class="onboarding-dots">
+          <span class="onboarding-dot active" data-dot="0"></span>
+          <span class="onboarding-dot" data-dot="1"></span>
+          <span class="onboarding-dot" data-dot="2"></span>
+        </div>
+        <div class="onboarding-btn-row">
+          <button id="backBtn" class="btn-ghost" type="button"></button>
+          <button id="nextBtn" class="btn-save" type="button"></button>
+        </div>
       </div>
-
-      <table class="schedule-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th id="scheduleColAfternoon">Afternoon</th>
-            <th id="scheduleColNight">Night</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td id="scheduleSummerLabel">Summer (Apr 1 - Sep 30)</td>
-            <td>15:00-17:30</td>
-            <td>23:00-07:00</td>
-          </tr>
-          <tr>
-            <td id="scheduleWinterLabel">Winter (Oct 1 - Mar 31)</td>
-            <td>15:30-17:30</td>
-            <td>22:00-07:30</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="onboarding-note" id="scheduleNote">Based on Police Order 3 of 1996. Silence Hero switches automatically, so you never have to remember the dates.</p>
-    </div>
-
-    <div class="settings-card">
-      <div class="section-title">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-          <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"></path>
-        </svg>
-        <span id="shortcutSectionTitle">Keyboard shortcut</span>
-      </div>
-
-      <div class="kbd-row">
-        <span class="kbd">Ctrl</span><span class="kbd-plus">+</span><span class="kbd">Shift</span><span class="kbd-plus">+</span><span class="kbd">Q</span>
-        <span class="kbd-or">/</span>
-        <span class="kbd">Cmd</span><span class="kbd-plus">+</span><span class="kbd">Shift</span><span class="kbd-plus">+</span><span class="kbd">Q</span>
-      </div>
-      <p class="onboarding-note" id="shortcutDesc">Manually override the current state at any time. It reverts automatically at the next scheduled change.</p>
-    </div>
-
-    <!-- Pin Instruction (matches settings.html) -->
-    <div class="pin-instruction">
-      <div class="pin-icon">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <line x1="12" y1="17" x2="12" y2="22"></line>
-          <path
-            d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z">
-          </path>
-        </svg>
-      </div>
-      <div class="pin-text">
-        <h3>Keep it handy!</h3>
-        <p>Pin Silence Hero to your toolbar for quick access to the Quiet Hours timer.</p>
-      </div>
-    </div>
-
-    <div class="actions actions-center">
-      <button id="getStarted" class="btn-save" type="button">Got it, let's go</button>
     </div>
   </div>
 

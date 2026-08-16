@@ -9,14 +9,16 @@
     --color-quiet: #D32F2F; /* Red */
     --color-normal: #388E3C; /* Green */
     --status-color: var(--color-normal);
+    --btn-border: rgba(32, 33, 36, 0.16);
   }
-  
+
   @media (prefers-color-scheme: dark) {
     :root {
       --bg-color: #121212;
       --text-color: #e8eaed;
       --card-bg: rgba(30, 30, 30, 0.6);
       --card-border: rgba(255, 255, 255, 0.1);
+      --btn-border: rgba(255, 255, 255, 0.18);
     }
   }
 
@@ -27,6 +29,7 @@
     --text-color: #e8eaed;
     --card-bg: rgba(30, 30, 30, 0.6);
     --card-border: rgba(255, 255, 255, 0.1);
+    --btn-border: rgba(255, 255, 255, 0.18);
   }
 
   body {
@@ -113,32 +116,55 @@
       transition: background 0.5s ease;
   }
   
-  .status-pulse {
-    width: 60px;
-    height: 60px;
-    background-color: var(--status-color);
-    border-radius: 50%;
+  /* Progress-ring meter: fill drains as time runs out toward the next
+     scheduled change. Track is a lighter tint of the same state hue (not
+     neutral gray) so the state reads across the whole ring, not just the
+     fill. */
+  .ring-wrap {
+    position: relative;
+    width: 128px;
+    height: 128px;
     margin-bottom: 16px;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    animation: pulse 2s infinite;
-    transition: background-color 0.5s ease;
   }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 var(--status-color-alpha, rgba(0,0,0, 0.3));
-    }
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-    100% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
+
+  .ring {
+    width: 128px;
+    height: 128px;
+    transform: rotate(-90deg);
   }
-  
+
+  .ring-track,
+  .ring-fill {
+    fill: none;
+    stroke-width: 9;
+  }
+
+  .ring-track {
+    stroke: var(--status-track);
+  }
+
+  .ring-fill {
+    stroke: var(--status-color);
+    stroke-linecap: round;
+    stroke-dasharray: 326.7;
+    transition: stroke-dashoffset 1s linear, stroke 0.5s ease;
+  }
+
+  .ring-glyph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--status-color);
+    transition: color 0.5s ease;
+  }
+
+  .ring-glyph svg {
+    width: 34px;
+    height: 34px;
+  }
+
   .status-text {
     font-size: 20px;
     font-weight: 700;
@@ -146,18 +172,6 @@
     text-align: center;
     color: var(--status-color);
     transition: color 0.5s ease;
-  }
-
-  .override-badge {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.7;
-    margin: -14px 0 20px 0;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background-color: rgba(128, 128, 128, 0.15);
   }
 
   .timer-section {
@@ -180,6 +194,63 @@
       font-weight: 500;
   }
   
+  /* Manual override control - previously only reachable via the keyboard
+     shortcut, with no visible way to discover or trigger it. */
+  .override-row {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .override-btn {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--btn-border);
+    background: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  .override-btn:hover {
+    background-color: rgba(128, 128, 128, 0.08);
+  }
+
+  .override-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .override-btn.is-active {
+    border-color: var(--status-color);
+    color: var(--status-color);
+  }
+
+  .override-btn kbd {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    opacity: 0.65;
+    flex-shrink: 0;
+    border: 1px solid currentColor;
+    font-family: ui-monospace, monospace;
+  }
+
+  .override-hint {
+    font-size: 11.5px;
+    opacity: 0.6;
+    text-align: center;
+    margin-top: 7px;
+  }
+
   /* Footer */
   .instruction-text {
     font-size: 13px;
@@ -188,14 +259,16 @@
     margin: 8px 0 0 0;
     line-height: 1.5;
   }
-  
+
   /* State Modifiers */
   .is-quiet {
       --status-color: var(--color-quiet);
       --status-color-alpha: rgba(211, 47, 47, 0.4);
+      --status-track: rgba(211, 47, 47, 0.18);
   }
-  
+
   .is-normal {
       --status-color: var(--color-normal);
       --status-color-alpha: rgba(56, 142, 60, 0.4);
+      --status-track: rgba(56, 142, 60, 0.18);
   }

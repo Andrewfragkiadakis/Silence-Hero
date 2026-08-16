@@ -23,18 +23,30 @@
     
     <main>
       <div id="statusCard" class="status-card blur-glass">
-        <div class="indicator-wrapper">
-            <div id="statusPulse" class="status-pulse"></div>
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120">
+            <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-glyph" id="ringGlyph"></div>
         </div>
+
         <h2 id="currentStatus" class="status-text">--</h2>
-        <span id="overrideBadge" class="override-badge" hidden></span>
 
         <div class="timer-section">
             <div id="timer" class="timer-display">--:--:--</div>
             <div id="nextChangeLabel" class="timer-label">Next change</div>
         </div>
+
+        <div class="override-row">
+          <button id="overrideBtn" class="override-btn" type="button">
+            <span id="overrideBtnLabel">Override</span>
+            <kbd>Ctrl+Shift+Q</kbd>
+          </button>
+          <div id="overrideHint" class="override-hint"></div>
+        </div>
       </div>
-      
+
       <p id="instruction" class="instruction-text"></p>
     </main>
   </div>
