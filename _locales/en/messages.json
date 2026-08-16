@@ -6,5 +6,18 @@
   "nextChange": { "message": "Next change at" },
   "instruction": { "message": "Adjust your volume according to Greek quiet hour rules." },
   "settings": { "message": "Settings" },
-  "manualOverride": { "message": "Manual Override" }
+  "manualOverride": { "message": "Manual Override" },
+  "onboardingTitle": { "message": "Welcome to Silence Hero" },
+  "onboardingIconSectionTitle": { "message": "How the icon works" },
+  "onboardingNormalDesc": { "message": "Normal hours — play music freely." },
+  "onboardingQuietDesc": { "message": "Quiet hours — please keep the volume down." },
+  "onboardingScheduleSectionTitle": { "message": "The official schedule" },
+  "onboardingScheduleSummerLabel": { "message": "Summer (Apr 1 - Sep 30)" },
+  "onboardingScheduleWinterLabel": { "message": "Winter (Oct 1 - Mar 31)" },
+  "onboardingScheduleColAfternoon": { "message": "Afternoon" },
+  "onboardingScheduleColNight": { "message": "Night" },
+  "onboardingScheduleNote": { "message": "Based on Police Order 3 of 1996. Silence Hero switches automatically, so you never have to remember the dates." },
+  "onboardingShortcutSectionTitle": { "message": "Keyboard shortcut" },
+  "onboardingShortcutDesc": { "message": "Manually override the current state at any time. It reverts automatically at the next scheduled change." },
+  "onboardingGetStarted": { "message": "Got it, let's go" }
 }

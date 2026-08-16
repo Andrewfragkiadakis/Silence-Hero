@@ -1,3 +1,5 @@
+import { applyTheme } from './theme.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- DOM Elements ---
   const notificationsInput = document.getElementById('notifications');
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     darkModeAutoInput.checked = items.darkModeAuto;
 
     // Apply initial theme logic immediately
-    checkTheme(items.darkModeAuto);
+    applyTheme(items.darkModeAuto);
   });
 
   // --- 3. Save Logic ---
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show Toast
       showToast();
       // Re-check theme
-      checkTheme(settings.darkModeAuto);
+      applyTheme(settings.darkModeAuto);
     });
   });
 
@@ -45,19 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       toast.classList.remove('show');
     }, 3000);
-  }
-
-  // --- Helper: Theme Logic ---
-  function checkTheme(autoDarkEnabled) {
-    if (autoDarkEnabled) {
-      const hour = new Date().getHours();
-      // 8 PM (20) to 6 AM (6)
-      if (hour >= 20 || hour < 6) {
-        document.body.classList.add('dark-mode');
-        return;
-      }
-    }
-    // specific cleanup if not in force-window
-    document.body.classList.remove('dark-mode');
   }
 });

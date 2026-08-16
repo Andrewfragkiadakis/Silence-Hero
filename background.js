@@ -166,7 +166,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   updateState();
 
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
-    chrome.tabs.create({ url: "settings.html" });
+    chrome.tabs.create({ url: "onboarding.html" });
     // Initialize storage to prevent immediate notification
     const { isQuiet } = await getEffectiveState();
     chrome.storage.local.set({ lastQuietState: isQuiet });

@@ -1,0 +1,97 @@
+.onboarding-icon-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.onboarding-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.status-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dot-green {
+    background-color: #388E3C;
+}
+
+.dot-red {
+    background-color: #D32F2F;
+}
+
+.onboarding-item-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.onboarding-item-desc {
+    font-size: 0.875rem;
+    opacity: 0.75;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.schedule-table th,
+.schedule-table td {
+    text-align: left;
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.schedule-table th {
+    opacity: 0.6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.onboarding-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.5;
+    margin: 16px 0 0 0;
+}
+
+.kbd-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.kbd {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(128, 128, 128, 0.15);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.kbd-plus {
+    opacity: 0.6;
+}
+
+.kbd-or {
+    opacity: 0.5;
+    margin: 0 4px;
+}
+
+.actions-center {
+    justify-content: center;
+}

@@ -22,5 +22,44 @@
     },
     "manualOverride": {
         "message": "Χειροκίνητη Παράκαμψη"
+    },
+    "onboardingTitle": {
+        "message": "Καλώς ήρθατε στον Silence Hero"
+    },
+    "onboardingIconSectionTitle": {
+        "message": "Πώς λειτουργεί το εικονίδιο"
+    },
+    "onboardingNormalDesc": {
+        "message": "Κανονικές ώρες — παίξτε μουσική ελεύθερα."
+    },
+    "onboardingQuietDesc": {
+        "message": "Ώρες κοινής ησυχίας — παρακαλώ χαμηλώστε την ένταση."
+    },
+    "onboardingScheduleSectionTitle": {
+        "message": "Το επίσημο ωράριο"
+    },
+    "onboardingScheduleSummerLabel": {
+        "message": "Καλοκαίρι (1 Απρ - 30 Σεπ)"
+    },
+    "onboardingScheduleWinterLabel": {
+        "message": "Χειμώνας (1 Οκτ - 31 Μαρ)"
+    },
+    "onboardingScheduleColAfternoon": {
+        "message": "Απόγευμα"
+    },
+    "onboardingScheduleColNight": {
+        "message": "Βράδυ"
+    },
+    "onboardingScheduleNote": {
+        "message": "Βάσει της Αστυνομικής Διάταξης 3/1996. Ο Silence Hero αλλάζει αυτόματα, οπότε δεν χρειάζεται να θυμάστε τις ημερομηνίες."
+    },
+    "onboardingShortcutSectionTitle": {
+        "message": "Συντόμευση πληκτρολογίου"
+    },
+    "onboardingShortcutDesc": {
+        "message": "Παρακάμψτε χειροκίνητα την τρέχουσα κατάσταση ανά πάσα στιγμή. Επανέρχεται αυτόματα στην επόμενη προγραμματισμένη αλλαγή."
+    },
+    "onboardingGetStarted": {
+        "message": "Το κατάλαβα, ας ξεκινήσουμε"
     }
 }

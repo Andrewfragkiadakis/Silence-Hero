@@ -14,6 +14,7 @@ zip -r -X "$OUT" \
   manifest.json \
   background.js \
   state.js \
+  theme.js \
   quietTimeLogic.js \
   offscreen.html \
   offscreen.js \
@@ -23,6 +24,9 @@ zip -r -X "$OUT" \
   settings.html \
   settings.css \
   settings.js \
+  onboarding.html \
+  onboarding.css \
+  onboarding.js \
   icons \
   _locales \
   -x '**/.DS_Store'

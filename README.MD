@@ -29,6 +29,8 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
     *   Enable subtle **Sound Alerts**.
 
     *   **Auto Dark Mode:** Automatically switches theme based on time (8 PM - 6 AM).
+* **Keyboard Shortcut (Manual Override):** Press **Ctrl+Shift+Q** (**Cmd+Shift+Q** on Mac) to manually flip the current state whenever you need to - it reverts automatically at the next scheduled change.
+* **First-Run Walkthrough:** A short onboarding tour opens automatically on install, explaining the icon colors, the schedule, and the shortcut.
 * **Smart Time Logic:** Knows the difference! Accurately follows the official quiet hours and automatically adjusts for the summer/winter periods:
     * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
     * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
@@ -66,7 +68,7 @@ Ready to become a Silence Hero? Installing is easy-peasy:
 
 ## Screenshots
 
-<img src="screenshot.png?v=6" width="50%" alt="Silence Hero Screenshot">
+<img src="screenshot.png?v=7" width="50%" alt="Silence Hero Screenshot">
 
 ## 📄 License
 
