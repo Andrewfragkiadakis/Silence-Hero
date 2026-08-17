@@ -36,6 +36,10 @@ Silence Hero gives you a clear heads-up with visual cues and a countdown timer, 
     * **Summer (Apr 1 - Sep 30):** 15:00–17:30 & 23:00–07:00
     * **Winter (Oct 1 - Mar 31):** 15:30–17:30 & 22:00–07:30
 
+## What's New
+
+<img src="whats-new.png?v=1" width="100%" alt="Silence Hero - what's new overview">
+
 ##  Installation
 
 Ready to become a Silence Hero? Installing is easy-peasy:
